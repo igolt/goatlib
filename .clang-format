@@ -1,0 +1,8 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+BreakBeforeBraces: Linux
+SpaceAfterCStyleCast: true
+AlignTrailingComments: true
+AlignConsecutiveMacros: Consecutive
+AlignConsecutiveAssignments: Consecutive
+AlwaysBreakAfterReturnType: AllDefinitions
