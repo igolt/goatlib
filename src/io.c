@@ -53,7 +53,7 @@ fgetword(char *word, int size, FILE *stream)
 
     do {
         *w++ = c;
-    } while (--size > 1 && isalnum(c = getc(stream)) && c == '_');
+    } while (--size > 1 && (isalnum(c = getc(stream)) || c == '_'));
     if (size > 1 && c != EOF) {
         ungetc(c, stream);
     }
