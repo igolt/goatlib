@@ -44,18 +44,22 @@ fgetword(char *word, int size, FILE *stream)
     }
 
     while (isspace(c = getc(stream))) {
-        /* Skip white spaces */;
+        continue;
     }
 
     if (c == EOF) {
         return NULL;
     }
 
-    do {
-        *w++ = c;
-    } while (--size > 1 && (isalnum(c = getc(stream)) || c == '_'));
-    if (size > 1 && c != EOF) {
-        ungetc(c, stream);
+    *w++ = c;
+
+    if (isalnum(c) || c == '_') {
+        while (--size > 1 && (isalnum(c = getc(stream)) || c == '_')) {
+            *w++ = c;
+        }
+        if (size > 1 && c != EOF) {
+            ungetc(c, stream);
+        }
     }
     *w = '\0';
     return word;
