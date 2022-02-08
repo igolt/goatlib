@@ -7,8 +7,7 @@
 
 #define eprint(s) fputs(s, stderr)
 
-#define eputs(s) eprint(s "\n")
-
+#define eputs(msg) fprintf(stderr, "%s\n", (msg));
 extern int eprintf(const char *fmt, ...);
 
 extern char *fgetstr(char *s, int size, FILE *stream);
